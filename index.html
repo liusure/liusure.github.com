@@ -1,10 +1,172 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<style>
+			@keyframes rotate {
+				from {
+					transform:rotateY(0deg)
+				}
+				to {
+					transform:rotateY(90deg)
+				}
+			}
+			@keyframes rotate2 {
+				from {
+					transform:rotateY(0deg)
+				}
+				to {
+					transform:rotateY(-90deg)
+				}
+			}
+			.stage {
+				/*perspective: 1500px;*/
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				left: 50%;
+				top: 50%;
+				margin-left: -100px;
+				margin-top: -100px;
+			}
+			
+			#container {
+				transform-style: preserve-3d;
+				transform: rotateX(-45deg) rotateY(-45deg);
+			}
+			
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: -50px;
+				margin-top: -50px;
+				transform-style: preserve-3d;
+				width: 100px;
+				height: 100px;
+			}
+			
+			li {
+				width: 100px;
+				height: 100px;
+				display: block;
+				position: absolute;
+				background: radial-gradient(transparent 30%, rgba(16, 47, 91, .2) 100%)
+			}
+			
+			li:after {
+				content: "";
+				background-color: rgba(126, 169, 232, .5);
+				width: 100px;
+				height: 100px;
+				display: block;
+				position: absolute;
+			}
+			
+			#litter li:after {
+				content: "";
+				background-color: rgba(126, 169, 232, .5);
+				width: 50px;
+				height: 50px;
+				display: block;
+				position: absolute;
+			}
+			
+			li.left {
+				transform: rotateY(-90deg) translateZ(50px);
+			}
+			
+			li.right {
+				transform: rotateY(90deg) translateZ(50px);
+			}
+			
+			li.front {
+				transform: translateZ(50px);
+			}
+			
+			li.back {
+				transform: rotateY(180deg) translateZ(50px);
+			}
+			
+			li.top {
+				transform: rotateX(90deg) translateZ(50px);
+			}
+			
+			li.bottom {
+				transform: rotateX(-90deg) translateZ(50px);
+			}
+			
+			#big {
+				animation: rotate 1s linear infinite;
+				transition: all 1s;
+				transform: rotateY(360deg);
+			}
+			
+			#litter {
+				animation: rotate2 1s linear infinite;
+				margin-left: -25px;
+				margin-top: -25px;
+				width: 50px;
+				height: 50px;
+			}
+			
+			#litter li {
+				width: 50px;
+				height: 50px;
+			}
+			
+			#litter li.left {
+				transform: rotateY(-90deg) translateZ(25px);
+			}
+			
+			#litter li.right {
+				transform: rotateY(90deg) translateZ(25px);
+			}
+			
+			#litter li.front {
+				transform: translateZ(25px);
+			}
+			
+			#litter li.back {
+				transform: rotateY(180deg) translateZ(25px);
+			}
+			
+			#litter li.top {
+				transform: rotateX(90deg) translateZ(25px);
+			}
+			
+			#litter li.bottom {
+				transform: rotateX(-90deg) translateZ(25px);
+			}
+		</style>
 	</head>
+
 	<body>
-		my page
+		<div class="stage">
+			<div id="container">
+				<ul id="big">
+					<li class="left"></li>
+					<li class="right"></li>
+					<li class="front"></li>
+					<li class="back"></li>
+					<li class="top"></li>
+					<li class="bottom"></li>
+				</ul>
+				<ul id="litter">
+					<li class="left"></li>
+					<li class="right"></li>
+					<li class="front"></li>
+					<li class="back"></li>
+					<li class="top"></li>
+					<li class="bottom"></li>
+				</ul>
+			</div>
+		</div>
 	</body>
+
 </html>
